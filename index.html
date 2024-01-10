@@ -1,0 +1,44 @@
+<html>
+<head>
+<title> Anagram Checker App </title>
+<style>
+	* { font-size:40px; font-family: Times New Roman;}
+	body { background-color:Azure; }
+</style>
+
+<script>
+	let mysort = function(s)		//anonmous fn
+	{
+		return s.split("").sort().join("");
+	}
+
+	function check()
+	{
+		event.preventDefault();
+		let s1 = document.getElementById("s1");
+		let s2 = document.getElementById("s2");
+		let msg = document.getElementById("msg");
+
+		if (mysort(s1.value) == mysort(s2.value))
+			msg.innerHTML = "They are anagrams ";
+		else
+			msg.innerHTML = "They are not anagrams ";
+		
+	}
+</script>
+</head>
+
+<body>
+<center>
+	<h1> Anagram App </h1>
+	<form onsubmit="check()">
+	<input type="text" id="s1" placeholder="enter first string "/>
+	<br><br>
+	<input type="text" id="s2" placeholder="enter second string "/>
+	<br><br>
+	<input type="submit" value="Check" />
+	</form>
+	<h2 id="msg" />
+</center>
+</body>
+</html>
